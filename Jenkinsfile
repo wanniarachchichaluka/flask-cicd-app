@@ -8,19 +8,29 @@ pipeline {
         }
         stage ('Install Dependencies'){
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
         stage ('test'){
             steps {
-                sh 'python3 pytest test_app.py -v' //--verbose to see a detailed output (test by test)
+                sh '''
+                    .venv/bin/activate
+                    python3 pytest test_app.py -v' //--verbose to see a detailed output (test by test)
+                '''
             }
         }
         stage ('Lint'){
             steps{
-                sh 'python3 -m flake8 app.py --max-line-length=88'
+                sh '''
+                    . venv/bin/activate
+                    python3 -m flake8 app.py --max-line-length=88'
                 //Reads the code without executing it and checks against set of style and error rules define in 'PEP8'
                 //'PEP8' is Python's official style guide
+                '''
             }
         }
         //test catches broke code
