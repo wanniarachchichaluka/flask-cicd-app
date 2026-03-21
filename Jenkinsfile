@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    python3 pytest test_app.py -v' //--verbose to see a detailed output (test by test)
+                    python3 pytest test_app.py -v //--verbose to see a detailed output (test by test)
                 '''
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps{
                 sh '''
                     . venv/bin/activate
-                    python3 -m flake8 app.py --max-line-length=88'
+                    python3 -m flake8 app.py --max-line-length=88
                 //Reads the code without executing it and checks against set of style and error rules define in 'PEP8'
                 //'PEP8' is Python's official style guide
                 '''
