@@ -8,11 +8,13 @@ def home():
         "message": "Flask CI/CD App is running"
     })
 
+
 @app.route('/health')
 def health():
     return jsonify({
         "status": "healthy"
-    }),200
+    }), 200
 
-if __name__=='__main__':
-    app.run(host='0.0.0.0',port=5000)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+    
