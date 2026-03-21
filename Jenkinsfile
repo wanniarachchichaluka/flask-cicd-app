@@ -18,7 +18,7 @@ pipeline {
         stage ('test'){
             steps {
                 sh '''
-                    .venv/bin/activate
+                    . venv/bin/activate
                     python3 pytest test_app.py -v' //--verbose to see a detailed output (test by test)
                 '''
             }
