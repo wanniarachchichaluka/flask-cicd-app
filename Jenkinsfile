@@ -111,7 +111,7 @@ pipeline {
             when { branch 'main' }
             steps {
                 timeout(time: 10, unit: 'MINUTES') {
-                    input message: 'Staging looks good. Deploy to production?',
+                    input message: 'Staging looks good. Will deploy to production?',
                           ok: 'Deploy to Production'
                 }
             }
